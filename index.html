@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kennedy Transport Services</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #0d0d0d, #add8e6, #d2b48c); }
+    header {
+      width: 100%; background-color: #121212; color: white; padding: 20px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      position: fixed; top: 0; z-index: 1000;
+    }
+    .logo { display: flex; align-items: center; font-size: 24px; font-weight: 600; }
+    .logo i { font-size: 28px; margin-right: 10px; color: #ff6f00; }
+    nav { display: flex; align-items: center; gap: 25px; }
+    nav a, .user-info { color: white; text-decoration: none; font-weight: 500; cursor: pointer; }
+    nav a:hover { color: #ffb347; }
+    .user-info { display: flex; flex-direction: column; align-items: center; }
+    .user-info i { font-size: 24px; margin-bottom: 2px; }
+    .hero-container {
+      margin-top: 120px; padding: 20px;
+      background-image: url('bgimg/img.jpeg');
+      background-size: cover; background-position: center;
+      display: flex; justify-content: center; align-items: center; flex-direction: column;
+    }
+    .carousel {
+      background-color: rgba(255, 255, 255, 0.85); padding: 20px; border-radius: 30px;
+      width: 90%; max-width: 1100px; overflow: hidden; position: relative;
+    }
+    .carousel-track { display: flex; transition: transform 0.5s ease-in-out; }
+    .carousel-slide { flex: 0 0 100%; padding: 10px; }
+    .carousel-slide img {
+      width: 100%; height: 500px; object-fit: cover; border-radius: 25px;
+    }
+    .carousel-buttons {
+      position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between;
+      transform: translateY(-50%); padding: 0 20px; pointer-events: none;
+    }
+    .carousel-buttons button {
+      background: rgba(0, 0, 0, 0.6); color: white; border: none; padding: 12px;
+      cursor: pointer; border-radius: 50%; font-size: 20px; pointer-events: all;
+    }
+    .carousel-dots { text-align: center; margin-top: 10px; }
+    .carousel-dots span {
+      display: inline-block; width: 10px; height: 10px; background: #888; margin: 5px;
+      border-radius: 50%; cursor: pointer;
+    }
+    .carousel-dots .active { background: #333; }
+
+    footer {
+      background-color: #121212; color: white; padding: 30px 20px;
+      display: flex; justify-content: space-around; flex-wrap: wrap;
+    }
+    footer div { margin: 10px 20px; }
+    footer h4 { margin-bottom: 10px; }
+    footer p, footer a {
+      color: #ccc; font-size: 14px; margin: 5px; display: block; text-decoration: none;
+    }
+    footer a:hover { color: white; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header { flex-direction: column; align-items: flex-start; }
+      nav { margin-top: 10px; flex-direction: column; align-items: flex-start; }
+      .carousel-slide img { height: 300px; }
+      footer { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <i class="fas fa-truck-moving"></i>
+      Kennedy Transport Services
+    </div>
+    <nav id="navLinks"></nav>
+  </header>
+
+  <section class="hero-container">
+    <div class="carousel">
+      <div class="carousel-track">
+        <div class="carousel-slide"><img src="bgimg/mg11.jpg" alt="Slide 1"></div>
+        <div class="carousel-slide"><img src="bgimg/mg22.jpg" alt="Slide 2"></div>
+        <div class="carousel-slide"><img src="bgimg/mg33.jpg" alt="Slide 3"></div>
+      </div>
+      <div class="carousel-buttons">
+        <button id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+        <button id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div class="carousel-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section style="background: linear-gradient(to bottom, #87cefa, #006400, #0d0d0d); padding: 60px 20px;">
+    <h2 style="text-align: center; color: #ff6f00; margin-bottom: 40px; font-size: 45px;">How It Works</h2>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 50px; max-width: 1100px; margin: auto;">
+      <div style="display: flex; flex-wrap: wrap; align-items: center;">
+        <img src="bgimg/lgp.png" style="flex: 1; max-width: 400px; border-radius: 20px; margin: 10px;">
+        <p style="flex: 1; font-size: 18px; padding: 20px; color: rgba(255, 255, 255, 0.9);">Register and log in securely to access logistics data and services in real-time.
+To ensure a seamless and secure experience, users are required to enter their name and date of birth during login. This lightweight verification process quickly authenticates your identity, enabling you to access personalized logistics solutions instantly. With secure login credentials and encrypted sessions, you can confidently manage, track, and post transport or load details in real time. Experience fast, safe, and user-friendly access to Kennedy’s powerful logistics platform with just two simple inputs."</p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap-reverse; align-items: center;">
+        <p style="flex: 1; font-size: 18px; padding: 20px;color: rgba(255, 255, 255, 0.9);">Search for vehicles or loads with our advanced and accurate filters."
+Users can easily input their pickup location and destination to find the best logistics options tailored to their needs. The system uses smart filters to match your route with available vehicles or posted loads in real time.
+
+Once the route is selected, the system calculates the estimated transportation cost based on the per ton rate, distance, load type, and vehicle category. This ensures transparent pricing without hidden charges.
+
+Additional features include:
+
+🚚 Vehicle Type Filtering (trucks, trailers, containers, etc.)
+
+🕒 Availability Schedule (choose a specific date or flexible range)
+
+💬 Live Rate Comparison from multiple verified transporters
+
+📍 Route Optimization suggestions for cost efficiency
+
+📊 Distance-based price breakdown with real-time fuel factor (optional)</p>
+        <img src="bgimg/ld.png" style="flex: 1; max-width: 400px; border-radius: 20px; margin: 10px;">
+      </div>
+      <div style="text-align: center;">
+        <img src="bgimg/tr.jpg" style="max-width: 870px; border-radius: 20px;">
+        <p style="font-size: 18px; margin-top: 20px;color: rgba(255, 255, 255, 0.9);">Connect instantly with verified partners and get the job done smoothly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Section -->
+  <section style="background: linear-gradient(to bottom, #0d0d0d, #87cefa, #003300);
+ padding: 60px 20px;">
+    <h2 style="text-align: center; color: #ff6f00; margin-bottom: 40px; font-size: 36px;">Why Should You Trust Us?</h2>
+    <div style="max-width: 1100px; margin: auto; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 40px;">
+      <div style="flex: 1 1 500px;">
+        <ul style="font-size: 18px; line-height: 1.8; color: #333;">
+          <li><strong>🔒 Data Privacy:</strong> Your information is encrypted and secure.</li>
+          <li><strong>🛡️ Secure Authentication:</strong> OTP-based logins for safe access.</li>
+          <li><strong>📊 Transparent Services:</strong> We ensure visibility of your logistics chain.</li>
+          <li><strong>✅ Verified Partners:</strong> Only trusted and verified service providers.</li>
+          <li><strong>📞 24x7 Support:</strong> Dedicated help for all your queries and needs.</li>
+        </ul>
+      </div>
+      <div style="flex: 1 1 400px; text-align: center;">
+        <img src="bgimg/ps.jpg" alt="Privacy Image" style="max-width: 100%; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+        <p style="font-size: 14px; margin-top: 10px; color: #777;">*Replace with your image at <code>bgimg/privacy-placeholder.jpg</code></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <h4>Contact Us</h4>
+      <p>Email: sji200497@gmail.com</p>
+      <p>Phone: +91-7255012024</p>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="#">About</a>
+      <a href="#">Careers</a>
+      <a href="#">Terms</a>
+    </div>
+    <div>
+      <h4>Support</h4>
+      <a href="#">Help Center</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </footer>
+
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const dots = document.querySelectorAll('.dot');
+    let index = 0;
+
+    function updateCarousel(position) {
+      const slideWidth = slides[0].getBoundingClientRect().width;
+      track.style.transform = `translateX(-${slideWidth * position}px)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[position].classList.add('active');
+    }
+
+    nextBtn.addEventListener('click', () => { index = (index + 1) % slides.length; updateCarousel(index); });
+    prevBtn.addEventListener('click', () => { index = (index - 1 + slides.length) % slides.length; updateCarousel(index); });
+    dots.forEach((dot, i) => { dot.addEventListener('click', () => { index = i; updateCarousel(index); }); });
+    setInterval(() => { index = (index + 1) % slides.length; updateCarousel(index); }, 5000);
+    window.addEventListener("DOMContentLoaded", () => {
+      const nav = document.getElementById("navLinks");
+      const userName = localStorage.getItem("userName");
+      if (userName) {
+        nav.innerHTML = `
+          <a href="index.html">Home</a>
+          <a href="findvehcle.html">Find Vehicle</a>
+          <a href="findload.html">Find Load</a>
+          <a href="ratecal.html">Post Load/Vehicle</a>
+          <div class="user-info">
+            <i class="fas fa-user-circle"></i>
+            <span>${userName}</span>
+            <a href="#" onclick="logout()" style="color: red; font-size: 15px;">Logout</a>
+          </div>
+        `;
+      } else {
+        nav.innerHTML = `
+          <a href="index.html">Home</a>
+          <a href="findvehcle.html">Find Vehicle</a>
+          <a href="findload.html">Find Load</a>
+          <a href="ratecal.html">Post Load/Vehicle</a>
+          <a href="login.html">Login</a>
+        `;
+      }
+    });
+    function logout() {
+      localStorage.removeItem("userName");
+      localStorage.removeItem("userDOB");
+      window.location.reload();
+    }
+  </script>
+</body>
+</html>
+

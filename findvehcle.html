@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Find Vehicle - Kennedy Transport</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0d0d0d, #add8e6, #d2b48c);
+      color: white;
+    }
+
+    header {
+      background-color: #121212;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+    }
+
+    .logo i {
+      margin-right: 10px;
+      color: #ff6f00;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #ffb347;
+    }
+
+    .find-vehicle-section {
+      padding: 60px 20px;
+    }
+
+    .find-vehicle-section h2 {
+      text-align: center;
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    form input,
+    form select {
+      padding: 14px 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      outline: none;
+      width: 100%;
+      backdrop-filter: blur(10px);
+      background-color: rgba(0, 0, 0, 0.35);
+      color: white;
+    }
+
+    form select:first-child,
+    form select:last-child,
+    form button {
+      grid-column: span 2;
+    }
+
+    form button {
+      padding: 16px 30px;
+      font-size: 18px;
+      background-color: #ff6f00;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.3s;
+    }
+
+    form button:hover {
+      background-color: #e85d00;
+      transform: scale(1.02);
+    }
+
+    @media (max-width: 768px) {
+      form {
+        grid-template-columns: 1fr;
+      }
+
+      form select:first-child,
+      form select:last-child,
+      form button {
+        grid-column: span 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <i class="fas fa-truck-moving"></i> Kennedy Transport
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="findload.html">Find Load</a>
+      <a href="ratecal.html">Post Load</a>
+    </nav>
+  </header>
+
+  <section class="find-vehicle-section">
+    <h2>Find Vehicle</h2>
+    <form>
+      <select required>
+        <option value="">Select Vehicle Type</option>
+        <option>Truck</option>
+        <option>Mini Truck</option>
+        <option>Tata Ace</option>
+        <option>Container</option>
+        <option>Trailer</option>
+        <option>Refrigerated</option>
+      </select>
+
+      <input type="text" placeholder="Pickup Location" required>
+      <input type="text" placeholder="Drop Location" required>
+      <input type="date" required>
+      <input type="time" required>
+
+      <select required>
+        <option value="">Select Capacity</option>
+        <option>Below 1 Ton</option>
+        <option>1 - 5 Ton</option>
+        <option>5 - 10 Ton</option>
+        <option>Above 10 Ton</option>
+      </select>
+
+      <button type="submit">Search Vehicles</button>
+    </form>
+  </section>
+
+  <script>
+    const form = document.querySelector("form");
+    window.addEventListener("DOMContentLoaded", () => form.reset());
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("✅ Thank you! We will find the best vehicle for your route.");
+    });
+  </script>
+
+</body>
+</html>

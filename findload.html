@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Load - Kennedy Transport</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0d0d0d, #add8e6, #d2b48c);
+    }
+    header {
+      width: 100%;
+      background-color: #121212;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      font-weight: 600;
+    }
+    .logo i {
+      font-size: 28px;
+      margin-right: 10px;
+      color: #ff6f00;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 500;
+      transition: color 0.3s;
+      cursor: pointer;
+    }
+    nav a:hover {
+      color: #ffb347;
+    }
+    .main-section {
+      margin-top: 120px;
+      padding: 40px;
+      text-align: center;
+    }
+    .input-group {
+      margin: 20px auto;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .input-group input {
+      padding: 14px 20px;
+      font-size: 16px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+    .input-group button {
+      padding: 14px;
+      font-size: 18px;
+      background-color: #ff6f00;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .input-group button:hover {
+      background-color: #e85d00;
+    }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      z-index: 9999;
+      text-align: center;
+    }
+    .modal.show {
+      display: block;
+    }
+    .modal h2 {
+      color: #ff6f00;
+    }
+    .blur {
+      filter: blur(5px);
+      pointer-events: none;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <i class="fas fa-truck-moving"></i>
+      Kennedy Transport Services
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="findvehcle.html">Find Vehicle</a>
+      <a href="ratecal.html">Post Load/Vehicle</a>
+    </nav>
+  </header>
+
+  <div class="main-section" id="mainSection">
+    <h1>Find a Load</h1>
+    <div class="input-group">
+      <input type="text" id="pickup" placeholder="Enter pickup location">
+      <input type="text" id="drop" placeholder="Enter drop location">
+      <button onclick="bookLogistics()">Book Logistics</button>
+    </div>
+  </div>
+
+  <div class="modal" id="confirmationModal">
+    <h2>🎉 Congratulations!</h2>
+    <p>We will contact you shortly regarding your logistics request.</p>
+  </div>
+
+  <script>
+    function bookLogistics() {
+      const pickup = document.getElementById('pickup').value.trim();
+      const drop = document.getElementById('drop').value.trim();
+      if (pickup === '' || drop === '') {
+        alert('Please fill both locations');
+        return;
+      }
+      document.getElementById('mainSection').classList.add('blur');
+      document.getElementById('confirmationModal').classList.add('show');
+      setTimeout(() => {
+        document.getElementById('mainSection').classList.remove('blur');
+        document.getElementById('confirmationModal').classList.remove('show');
+      }, 4000);
+    }
+  </script>
+</body>
+</html>

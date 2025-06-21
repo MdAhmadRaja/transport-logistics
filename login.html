@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | Kennedy Transport Services</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0d0d0d, #add8e6, #d2b48c);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    .login-box {
+      background-color: rgba(0, 0, 0, 0.6); /* Transparent dark */
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      text-align: center;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px); /* Glassmorphism */
+    }
+
+    h2 {
+      color: #ff6f00;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      background-color: rgba(255, 255, 255, 0.9);
+      color: #000;
+      font-weight: 500;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #ff6f00;
+      color: white;
+      border: none;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #e85d00;
+    }
+
+    .success-message {
+      display: none;
+      color: #0f0;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="text" id="name" placeholder="Enter your name" required />
+      <input type="date" id="dob" required />
+      <button type="submit">Login</button>
+    </form>
+    <p class="success-message" id="successMsg">✅ Logged in successfully!</p>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const dob = document.getElementById('dob').value;
+
+      localStorage.setItem('userName', name);
+      localStorage.setItem('userDOB', dob);
+
+      // Show success message
+      const msg = document.getElementById('successMsg');
+      msg.style.display = 'block';
+
+      // Redirect after 2 seconds
+      setTimeout(() => {
+        window.location.href = 'index.html';
+      }, 2000);
+    });
+  </script>
+</body>
+</html>
